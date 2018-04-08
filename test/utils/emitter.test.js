@@ -13,11 +13,15 @@ describe('emitter', () => {
 
     emitter.on('increment', incrementHandler);
 
-    emitter.emit('increment');
-    expect(result).to.deep.equal(1);
+    const expected1 = result + 1;
 
     emitter.emit('increment');
-    expect(result).to.deep.equal(2);
+    expect(result).to.deep.equal(expected1);
+
+    const expected2 = result + 1;
+
+    emitter.emit('increment');
+    expect(result).to.deep.equal(expected2);
   });
 
   it('вызов обработчика при возникновении конкретного события', () => {
@@ -33,8 +37,10 @@ describe('emitter', () => {
     emitter.on('increment', incrementHandler);
     emitter.on('decrement', decrementHandler);
 
+    const expected = result + 1;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(1);
+    expect(result).to.deep.equal(expected);
   });
 
   it('вызов обработчиков при возникновении нескольких событий', () => {
@@ -50,11 +56,15 @@ describe('emitter', () => {
     emitter.on('increment', incrementHandler);
     emitter.on('decrement', decrementHandler);
 
+    const expected1 = result + 1;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(1);
+    expect(result).to.deep.equal(expected1);
+
+    const expected2 = result - 1;
 
     emitter.emit('decrement');
-    expect(result).to.deep.equal(0);
+    expect(result).to.deep.equal(expected2);
   });
 
   it('вызов нескольких обработчиков при возникновении события', () => {
@@ -70,8 +80,10 @@ describe('emitter', () => {
     emitter.on('increment', incrementHandler1);
     emitter.on('increment', incrementHandler2);
 
+    const expected = result + 1 + 10;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(11);
+    expect(result).to.deep.equal(expected);
   });
 
   it('вызов нескольких обработчиков при возникновении нескольких событий', () => {
@@ -87,7 +99,7 @@ describe('emitter', () => {
       result -= 1;
     };
     const decrementHandler2 = function () {
-      result -= 11;
+      result -= 10;
     };
 
     emitter.on('increment', incrementHandler1);
@@ -95,11 +107,15 @@ describe('emitter', () => {
     emitter.on('decrement', decrementHandler1);
     emitter.on('decrement', decrementHandler2);
 
+    const expected1 = result + 1 + 10;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(11);
+    expect(result).to.deep.equal(expected1);
+
+    const expected2 = result - 1 - 10;
 
     emitter.emit('decrement');
-    expect(result).to.deep.equal(0);
+    expect(result).to.deep.equal(expected2);
   });
 
   it('вызов обработчиков должен происходить в том порядке, в котором их подписали', () => {
@@ -123,8 +139,10 @@ describe('emitter', () => {
     emitter.on('calc', incrementHandler2);
     emitter.on('calc', multiplicationHandler2);
 
+    const expected = ((result + 1) * 2 + 10) * 20;
+
     emitter.emit('calc');
-    expect(result).to.deep.equal(240);
+    expect(result).to.deep.equal(expected);
   });
 
   it('отписка обработчика от события', () => {
@@ -136,13 +154,15 @@ describe('emitter', () => {
 
     emitter.on('increment', incrementHandler);
 
+    const expected = result + 1;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(1);
+    expect(result).to.deep.equal(expected);
 
     emitter.off('increment', incrementHandler);
 
     emitter.emit('increment');
-    expect(result).to.deep.equal(1);
+    expect(result).to.deep.equal(expected);
   });
 
   it('отписка конкретного обработчика от события', () => {
@@ -152,19 +172,23 @@ describe('emitter', () => {
       result += 1;
     };
     const incrementHandler2 = function () {
-      result += 11;
+      result += 10;
     };
 
     emitter.on('increment', incrementHandler1);
     emitter.on('increment', incrementHandler2);
 
+    const expected1 = result + 1 + 10;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(11);
+    expect(result).to.deep.equal(expected1);
 
     emitter.off('increment', incrementHandler1);
 
+    const expected2 = result + 10;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(12);
+    expect(result).to.deep.equal(expected2);
   });
 
   it('отписка обработчика от конкретного события', () => {
@@ -180,20 +204,24 @@ describe('emitter', () => {
     emitter.on('increment', incrementHandler);
     emitter.on('decrement', decrementHandler);
 
+    const expected1 = result + 1;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(1);
+    expect(result).to.deep.equal(expected1);
 
     // Не должно сработать, так как передан обработчик для другого события
     emitter.off('increment', decrementHandler);
 
+    const expected2 = result + 1;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(2);
+    expect(result).to.deep.equal(expected2);
 
     // Должен сработать
     emitter.off('increment', incrementHandler);
 
     emitter.emit('increment');
-    expect(result).to.deep.equal(2);
+    expect(result).to.deep.equal(expected2);
   });
 
   it('отписка обработчиков от нескольких событий', () => {
@@ -209,24 +237,30 @@ describe('emitter', () => {
     emitter.on('increment', incrementHandler);
     emitter.on('decrement', decrementHandler);
 
+    const expected1 = result + 1;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(1);
+    expect(result).to.deep.equal(expected1);
+
+    const expected2 = result - 1;
 
     emitter.emit('decrement');
-    expect(result).to.deep.equal(0);
+    expect(result).to.deep.equal(expected2);
 
     emitter.off('increment', incrementHandler);
 
     emitter.emit('increment');
-    expect(result).to.deep.equal(0);
+    expect(result).to.deep.equal(expected2);
+
+    const expected3 = result - 1;
 
     emitter.emit('decrement');
-    expect(result).to.deep.equal(-1);
+    expect(result).to.deep.equal(expected3);
 
     emitter.off('decrement', decrementHandler);
 
     emitter.emit('decrement');
-    expect(result).to.deep.equal(-1);
+    expect(result).to.deep.equal(expected3);
   });
 
   it('отписка нескольких обработчиков от события', () => {
@@ -242,18 +276,22 @@ describe('emitter', () => {
     emitter.on('increment', incrementHandler1);
     emitter.on('increment', incrementHandler2);
 
+    const expected1 = result + 1 + 10;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(11);
+    expect(result).to.deep.equal(expected1);
 
     emitter.off('increment', incrementHandler1);
 
+    const expected2 = result + 10;
+
     emitter.emit('increment');
-    expect(result).to.deep.equal(12);
+    expect(result).to.deep.equal(expected2);
 
     emitter.off('increment', incrementHandler2);
 
     emitter.emit('increment');
-    expect(result).to.deep.equal(12);
+    expect(result).to.deep.equal(expected2);
   });
 
   it('отписка обработчиков должна сохранять порядок оставшихся обработчиков', () => {
