@@ -9,13 +9,17 @@ class EmitterWithSet {
   }
 
   off (event, listener) {
-    this.listeners[event].delete(listener);
+    if (this.listeners[event]) {
+      this.listeners[event].delete(listener);
+    }
   }
 
   emit (event) {
-    this.listeners[event].forEach(savedListener => {
-      savedListener();
-    });
+    if (this.listeners[event]) {
+      for (let listener of this.listeners[event].values()) {
+        listener();
+      }
+    }
   }
 }
 
