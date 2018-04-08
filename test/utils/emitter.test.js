@@ -102,6 +102,31 @@ describe('emitter', () => {
     expect(result).to.deep.equal(0);
   });
 
+  it('вызов обработчиков должен происходить в том порядке, в котором их подписали', () => {
+    let result = 0;
+
+    const incrementHandler1 = function () {
+      result += 1;
+    };
+    const multiplicationHandler1 = function () {
+      result *= 2;
+    };
+    const incrementHandler2 = function () {
+      result += 10;
+    };
+    const multiplicationHandler2 = function () {
+      result *= 20;
+    };
+
+    emitter.on('calc', incrementHandler1);
+    emitter.on('calc', multiplicationHandler1);
+    emitter.on('calc', incrementHandler2);
+    emitter.on('calc', multiplicationHandler2);
+
+    emitter.emit('calc');
+    expect(result).to.deep.equal(240);
+  });
+
   it('отписка обработчика от события', () => {
     let result = 0;
 
@@ -229,5 +254,46 @@ describe('emitter', () => {
 
     emitter.emit('increment');
     expect(result).to.deep.equal(12);
+  });
+
+  it('отписка обработчиков должна сохранять порядок оставшихся обработчиков', () => {
+    let result = 0;
+
+    const incrementHandler1 = function () {
+      result += 1;
+    };
+    const multiplicationHandler1 = function () {
+      result *= 2;
+    };
+    const incrementHandler2 = function () {
+      result += 10;
+    };
+    const multiplicationHandler2 = function () {
+      result *= 20;
+    };
+
+    emitter.on('calc', incrementHandler1);
+    emitter.on('calc', multiplicationHandler1);
+    emitter.on('calc', incrementHandler2);
+    emitter.on('calc', multiplicationHandler2);
+
+    const expected1 = ((result + 1) * 2 + 10) * 20;
+
+    emitter.emit('calc');
+    expect(result).to.deep.equal(expected1);
+
+    emitter.off('calc', multiplicationHandler1);
+
+    const expected2 = (result + 1 + 10) * 20;
+
+    emitter.emit('calc');
+    expect(result).to.deep.equal(expected2);
+
+    emitter.off('calc', incrementHandler1);
+
+    const expected3 = (result + 10) * 20;
+
+    emitter.emit('calc');
+    expect(result).to.deep.equal(expected3);
   });
 });
