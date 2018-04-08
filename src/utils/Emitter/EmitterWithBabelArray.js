@@ -1,4 +1,4 @@
-import 'core-js/fn/array';
+import 'core-js/fn/array/values';
 
 class EmitterWithArray {
   constructor () {
