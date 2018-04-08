@@ -1,5 +1,79 @@
 [
   {
+    "tag": "1b6c131aa8593381ab95e5cb88d1577c80a7044b",
+    "timestamp": "2018-04-08T22:30:49.187Z",
+    "suites": {
+      "suggest": {
+        "suggestWithRegExp": {
+          "hz": 25674.58948994045,
+          "cycles": 5,
+          "count": 1449,
+          "times": {
+            "cycle": 0.05643712436250372,
+            "elapsed": 6.055,
+            "period": 0.000038949016123190974,
+            "timeStamp": 1523226636895
+          }
+        },
+        "suggestWithIndexOf": {
+          "hz": 15332.690466089323,
+          "cycles": 5,
+          "count": 810,
+          "times": {
+            "cycle": 0.05282830184248769,
+            "elapsed": 6.089,
+            "period": 0.00006522012573146628,
+            "timeStamp": 1523226630798
+          }
+        },
+        "suggestWithIncludes": {
+          "hz": 14667.750153130828,
+          "cycles": 5,
+          "count": 789,
+          "times": {
+            "cycle": 0.053791480749458234,
+            "elapsed": 6.212,
+            "period": 0.00006817678168499143,
+            "timeStamp": 1523226624579
+          }
+        },
+        "suggestWithSearch": {
+          "hz": 8147.603546072938,
+          "cycles": 6,
+          "count": 458,
+          "times": {
+            "cycle": 0.05621284803686248,
+            "elapsed": 6.226,
+            "period": 0.00012273547606301852,
+            "timeStamp": 1523226642958
+          }
+        },
+        "suggestWithForOf": {
+          "hz": 5110.3584453725,
+          "cycles": 5,
+          "count": 304,
+          "times": {
+            "cycle": 0.05948702096919957,
+            "elapsed": 6.196,
+            "period": 0.00019568099003026173,
+            "timeStamp": 1523226612293
+          }
+        },
+        "suggestWithForOf2": {
+          "hz": 4686.194453470489,
+          "cycles": 4,
+          "count": 250,
+          "times": {
+            "cycle": 0.05334819168992352,
+            "elapsed": 6.074,
+            "period": 0.00021339276675969406,
+            "timeStamp": 1523226618498
+          }
+        }
+      }
+    }
+  },
+  {
     "tag": "00d3f797d9b51f93ee0eba5acfa960be1eb16daf",
     "timestamp": "2018-04-08T18:59:57.267Z",
     "suites": {
