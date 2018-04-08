@@ -1,49 +1,78 @@
 /* global compare, benchmark */
-const EmitterSimple = require('./../../../dist/utils/Emitter/EmitterSimple');
+const EmitterWithArray = require('./../../../dist/utils/Emitter/EmitterWithArray');
+const EmitterWithBabelArray = require('./../../../dist/utils/Emitter/EmitterWithBabelArray');
+const EmitterWithMap = require('./../../../dist/utils/Emitter/EmitterWithMap');
 const EmitterWithSet = require('./../../../dist/utils/Emitter/EmitterWithSet');
 
-const emitterSimple = new EmitterSimple();
-const emitterWithSet = new EmitterWithSet();
+compare('Emitter.on', function () {
+  const emitterWithArray = new EmitterWithArray();
+  const emitterWithBabelArray = new EmitterWithBabelArray();
+  const emitterWithMap = new EmitterWithMap();
+  const emitterWithSet = new EmitterWithSet();
+  const eventHandler = () => {};
 
-compare('EmitterSimple.on vs EmitterWithSet.on', function () {
-  benchmark('EmitterSimple.on', function () {
-    const eventHandler = () => {};
-
-    emitterSimple.on('event', eventHandler);
+  benchmark('EmitterWithArray.on', function () {
+    emitterWithArray.on('event', eventHandler);
+  });
+  benchmark('EmitterWithBabelArray.on', function () {
+    emitterWithBabelArray.on('event', eventHandler);
+  });
+  benchmark('EmitterWithMap.on', function () {
+    emitterWithMap.on('event', eventHandler);
   });
   benchmark('EmitterWithSet.on', function () {
-    const eventHandler = () => {};
-
     emitterWithSet.on('event', eventHandler);
   });
 });
 
-compare('EmitterSimple.off vs EmitterWithSet.off', function () {
-  benchmark('EmitterSimple.off', function () {
-    const eventHandler = () => {};
+compare('Emitter.emit', function () {
+  const emitterWithArray = new EmitterWithArray();
+  const emitterWithBabelArray = new EmitterWithBabelArray();
+  const emitterWithMap = new EmitterWithMap();
+  const emitterWithSet = new EmitterWithSet();
+  const eventHandler = () => {};
 
-    emitterSimple.on('event', eventHandler);
-    emitterSimple.off('event', eventHandler);
+  emitterWithArray.on('event', eventHandler);
+  emitterWithBabelArray.on('event', eventHandler);
+  emitterWithMap.on('event', eventHandler);
+  emitterWithSet.on('event', eventHandler);
+
+  benchmark('EmitterWithArray.emit', function () {
+    emitterWithArray.emit('event');
   });
-  benchmark('EmitterWithSet.off', function () {
-    const eventHandler = () => {};
-
-    emitterWithSet.on('event', eventHandler);
-    emitterWithSet.off('event', eventHandler);
+  benchmark('EmitterWithBabelArray.emit', function () {
+    emitterWithBabelArray.emit('event');
   });
-});
-
-compare('EmitterSimple.emit vs EmitterWithSet.emit', function () {
-  benchmark('EmitterSimple.emit', function () {
-    const eventHandler = () => {};
-
-    emitterSimple.on('event', eventHandler);
-    emitterSimple.emit('event');
+  benchmark('EmitterWithMap.emit', function () {
+    emitterWithMap.emit('event');
   });
   benchmark('EmitterWithSet.emit', function () {
-    const eventHandler = () => {};
-
-    emitterWithSet.on('event', eventHandler);
     emitterWithSet.emit('event');
+  });
+});
+
+compare('Emitter.off', function () {
+  const emitterWithArray = new EmitterWithArray();
+  const emitterWithBabelArray = new EmitterWithBabelArray();
+  const emitterWithMap = new EmitterWithMap();
+  const emitterWithSet = new EmitterWithSet();
+  const eventHandler = () => {};
+
+  emitterWithArray.on('event', eventHandler);
+  emitterWithBabelArray.on('event', eventHandler);
+  emitterWithMap.on('event', eventHandler);
+  emitterWithSet.on('event', eventHandler);
+
+  benchmark('EmitterWithArray.off', function () {
+    emitterWithArray.off('event', eventHandler);
+  });
+  benchmark('EmitterWithBabelArray.off', function () {
+    emitterWithBabelArray.off('event', eventHandler);
+  });
+  benchmark('EmitterWithMap.off', function () {
+    emitterWithMap.off('event', eventHandler);
+  });
+  benchmark('EmitterWithSet.off', function () {
+    emitterWithSet.off('event', eventHandler);
   });
 });
