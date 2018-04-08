@@ -9,12 +9,16 @@ class EmitterWithMap {
   }
 
   off (event, listener) {
-    this.listeners[event].delete(listener);
+    if (this.listeners[event]) {
+      this.listeners[event].delete(listener);
+    }
   }
 
   emit (event) {
-    for (let listener of this.listeners[event].values()) {
-      listener();
+    if (this.listeners[event]) {
+      for (let listener of this.listeners[event].values()) {
+        listener();
+      }
     }
   }
 }
