@@ -5,7 +5,7 @@ const EmitterWithSet = require('./../../../src/utils/Emitter/EmitterWithSet');
 
 const emitter = new EmitterWithSet();
 
-describe('emitter', () => {
+describe('EmitterWithSet', () => {
   it('вызов обработчика при возникновении события', () => {
     let result = 0;
 

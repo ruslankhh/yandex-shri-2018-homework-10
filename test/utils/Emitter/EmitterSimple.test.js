@@ -5,7 +5,7 @@ const EmitterSimple = require('./../../../src/utils/Emitter/EmitterSimple');
 
 const emitter = new EmitterSimple();
 
-describe('emitter', () => {
+describe('EmitterSimple', () => {
   it('вызов обработчика при возникновении события', () => {
     let result = 0;
 
