@@ -1,11 +1,11 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
-const EmitterWithArray = require('./../../../src/utils/Emitter/EmitterWithArray');
+const EmitterWithBabelArray = require('./../../../src/utils/Emitter/EmitterWithBabelArray');
 
-const emitter = new EmitterWithArray();
+const emitter = new EmitterWithBabelArray();
 
-describe('EmitterWithArray', () => {
+describe('EmitterWithBabelArray', () => {
   it('вызов обработчика при возникновении события', () => {
     let result = 0;
 
