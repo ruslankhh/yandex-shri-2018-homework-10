@@ -1,7 +1,7 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
-const EmitterSimple = require('./../../../../src/utils/Emitter/EmitterSimple');
+const EmitterSimple = require('./../../../src/utils/Emitter/EmitterSimple');
 
 const emitter = new EmitterSimple();
 

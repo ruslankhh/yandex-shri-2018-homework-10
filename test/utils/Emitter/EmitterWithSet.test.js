@@ -1,7 +1,7 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
-const EmitterWithSet = require('./../../../../src/utils/Emitter/EmitterWithSet');
+const EmitterWithSet = require('./../../../src/utils/Emitter/EmitterWithSet');
 
 const emitter = new EmitterWithSet();
 
