@@ -1,0 +1,80 @@
+[
+  {
+    "tag": "eccd455a02a3364a6fec1b3def69ad4d79f541b1",
+    "timestamp": "2018-04-08T16:43:04.968Z",
+    "suites": {
+      "EmitterSimple.on vs EmitterWithSet.on": {
+        "EmitterWithSet.on": {
+          "hz": 1422271.4819918845,
+          "cycles": 4,
+          "count": 171030,
+          "times": {
+            "cycle": 0.12025130375283437,
+            "elapsed": 6.016,
+            "period": 7.031006475637863e-7,
+            "timeStamp": 1523205753144
+          }
+        },
+        "EmitterSimple.on": {
+          "hz": 6783.427526102666,
+          "cycles": 3,
+          "count": 2706,
+          "times": {
+            "cycle": 0.39891337964285717,
+            "elapsed": 5.93,
+            "period": 0.00014741810038538698,
+            "timeStamp": 1523205747205
+          }
+        }
+      },
+      "EmitterSimple.emit vs EmitterWithSet.emit": {
+        "EmitterSimple.emit": {
+          "hz": 681.8311686609866,
+          "cycles": 3,
+          "count": 41,
+          "times": {
+            "cycle": 0.06013218797333335,
+            "elapsed": 5.94,
+            "period": 0.001466638731056911,
+            "timeStamp": 1523205759170
+          }
+        },
+        "EmitterWithSet.emit": {
+          "hz": 5.255473495963792,
+          "cycles": 1,
+          "count": 1,
+          "times": {
+            "cycle": 0.19027781241176475,
+            "elapsed": 7.003,
+            "period": 0.19027781241176475,
+            "timeStamp": 1523205765118
+          }
+        }
+      },
+      "EmitterSimple.off vs EmitterWithSet.off": {
+        "EmitterWithSet.off": {
+          "hz": 841072.6182264716,
+          "cycles": 3,
+          "count": 188155,
+          "times": {
+            "cycle": 0.22370838845848195,
+            "elapsed": 6.592,
+            "period": 0.0000011889579785734206,
+            "timeStamp": 1523205778375
+          }
+        },
+        "EmitterSimple.off": {
+          "hz": 65.37376382567506,
+          "cycles": 2,
+          "count": 13,
+          "times": {
+            "cycle": 0.19885653263999997,
+            "elapsed": 6.239,
+            "period": 0.015296656356923075,
+            "timeStamp": 1523205772129
+          }
+        }
+      }
+    }
+  }
+]
