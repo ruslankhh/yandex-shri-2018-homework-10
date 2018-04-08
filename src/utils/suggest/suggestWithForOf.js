@@ -1,13 +1,13 @@
 function suggestWithForOf (input, collection) {
   return collection.filter(item => {
-    const string = item.toLowerCase();
+    const source = item.toLowerCase();
     const target = input.toLowerCase();
     let result = '';
     let j = 0;
 
-    for (let value of string) {
-      if (value === target[j]) {
-        result += value;
+    for (let i = 0; i < source.length; i++) {
+      if (source[i] === target[j]) {
+        result += source[i];
         j += 1;
 
         if (result === target) {

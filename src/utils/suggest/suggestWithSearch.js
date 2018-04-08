@@ -1,6 +1,9 @@
 function suggestWithIncludes (input, collection) {
   return collection.filter(item => {
-    return item.toLowerCase().search(input.toLowerCase()) !== -1;
+    const source = item.toLowerCase();
+    const target = input.toLowerCase();
+
+    return source.search(target) !== -1;
   });
 }
 
