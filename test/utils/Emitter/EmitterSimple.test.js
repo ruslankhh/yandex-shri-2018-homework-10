@@ -1,7 +1,9 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
-const emitter = require('./../../src/utils/emitter');
+const EmitterSimple = require('./../../src/utils/Emitter/EmitterSimple');
+
+const emitter = new EmitterSimple();
 
 describe('emitter', () => {
   it('вызов обработчика при возникновении события', () => {
