@@ -6,9 +6,10 @@ const preIncludes = (needle) => {
     S[i] = ~0;
   }
 
-  for (let i = 0, j = 1; i < needle.length; i++, j <<= 1) {
-    S[needle[i]] &= ~j;
-    lim |= j;
+  for (let i = 0, j = 1; i < needle.length; i++) {
+    S[needle[i]] = S[needle[i]] & ~j;
+    lim = lim | j;
+    j = j << 1;
   }
 
   return ~(lim >> 1);
