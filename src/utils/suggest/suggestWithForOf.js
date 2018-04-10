@@ -1,26 +1,28 @@
-function suggestWithForOf (input, collection) {
-  return collection.filter(item => {
-    const source = item.toLowerCase();
-    const target = input.toLowerCase();
-    let result = '';
-    let j = 0;
+function includes (needle, haystack) {
+  let result = '';
+  let j = 0;
 
-    for (let i = 0; i < source.length; i++) {
-      if (source[i] === target[j]) {
-        result += source[i];
-        j += 1;
+  for (let i = 0; i < haystack.length; i++) {
+    if (haystack[i] === needle[j]) {
+      result += haystack[i];
+      j += 1;
 
-        if (result === target) {
-          return true;
-        }
-      } else {
-        result = '';
-        j = 0;
+      if (result === needle) {
+        return true;
       }
+    } else {
+      result = '';
+      j = 0;
     }
+  }
 
-    return false;
-  });
+  return false;
+}
+
+function suggestWithForOf (input, collection) {
+  return collection.filter(item =>
+    includes(input.toLowerCase(), item.toLowerCase())
+  );
 }
 
 export default suggestWithForOf;

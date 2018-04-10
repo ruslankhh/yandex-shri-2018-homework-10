@@ -1,10 +1,11 @@
-function suggestWithRegExp (input, collection) {
-  return collection.filter(item => {
-    const source = item;
-    const target = new RegExp(input, 'ig');
+function includes (needle, haystack) {
+  return (new RegExp(needle, 'ig')).test(haystack);
+}
 
-    return target.test(source);
-  });
+function suggestWithRegExp (input, collection) {
+  return collection.filter(item =>
+    includes(input, item)
+  );
 }
 
 export default suggestWithRegExp;

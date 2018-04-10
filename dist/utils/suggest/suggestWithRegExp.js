@@ -3,12 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+function includes(needle, haystack) {
+  return new RegExp(needle, 'ig').test(haystack);
+}
+
 function suggestWithRegExp(input, collection) {
   return collection.filter(function (item) {
-    var source = item;
-    var target = new RegExp(input, 'ig');
-
-    return target.test(source);
+    return includes(input, item);
   });
 }
 

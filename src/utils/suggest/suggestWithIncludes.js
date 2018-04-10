@@ -1,10 +1,11 @@
-function suggestWithIncludes (input, collection) {
-  return collection.filter(item => {
-    const source = item.toLowerCase();
-    const target = input.toLowerCase();
+function includes (needle, haystack) {
+  return haystack.includes(needle);
+}
 
-    return source.includes(target);
-  });
+function suggestWithIncludes (input, collection) {
+  return collection.filter(item =>
+    includes(input.toLowerCase(), item.toLowerCase())
+  );
 }
 
 export default suggestWithIncludes;

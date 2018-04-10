@@ -3,12 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+function includes(needle, haystack) {
+  return haystack.indexOf(needle) !== -1;
+}
+
 function suggestWithIndexOf(input, collection) {
   return collection.filter(function (item) {
-    var source = item.toLowerCase();
-    var target = input.toLowerCase();
-
-    return source.indexOf(target) !== -1;
+    return includes(input.toLowerCase(), item.toLowerCase());
   });
 }
 
