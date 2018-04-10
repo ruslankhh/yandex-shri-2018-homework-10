@@ -1,5 +1,250 @@
 [
   {
+    "tag": "1783d8a45ecd0633254f8a3c531653909c71b3a8",
+    "timestamp": "2018-04-10T20:17:36.684Z",
+    "suites": {
+      "Emitter.on": {
+        "EmitterWithSet.on": {
+          "hz": 8643945.420510711,
+          "cycles": 5,
+          "count": 529322,
+          "times": {
+            "cycle": 0.06123615713074759,
+            "elapsed": 5.996,
+            "period": 1.1568791233076954e-7,
+            "timeStamp": 1523391353366
+          }
+        },
+        "EmitterWithMap.on": {
+          "hz": 7788009.433924093,
+          "cycles": 5,
+          "count": 542653,
+          "times": {
+            "cycle": 0.06967801010053182,
+            "elapsed": 6.133,
+            "period": 1.2840251523631457e-7,
+            "timeStamp": 1523391341247
+          }
+        },
+        "EmitterWithArray.on": {
+          "hz": 6013636.770358187,
+          "cycles": 5,
+          "count": 512828,
+          "times": {
+            "cycle": 0.085277515018496,
+            "elapsed": 6.619,
+            "period": 1.662887264706607e-7,
+            "timeStamp": 1523391328413
+          }
+        },
+        "EmitterWithBabelArray.on": {
+          "hz": 5902331.711232612,
+          "cycles": 4,
+          "count": 571916,
+          "times": {
+            "cycle": 0.09689662119660233,
+            "elapsed": 6.198,
+            "period": 1.694245679376033e-7,
+            "timeStamp": 1523391335040
+          }
+        },
+        "EmitterWithObject.on": {
+          "hz": 772090.6126831,
+          "cycles": 5,
+          "count": 46559,
+          "times": {
+            "cycle": 0.060302507549214124,
+            "elapsed": 5.971,
+            "period": 0.0000012951847666232978,
+            "timeStamp": 1523391347387
+          }
+        }
+      },
+      "Emitter.emit": {
+        "EmitterWithBabelArray.emit": {
+          "hz": 38541046.616378434,
+          "cycles": 8,
+          "count": 2381034,
+          "times": {
+            "cycle": 0.06177917334990467,
+            "elapsed": 6.136,
+            "period": 2.5946363365623786e-8,
+            "timeStamp": 1523391365551
+          }
+        },
+        "EmitterWithSet.emit": {
+          "hz": 28145964.748510078,
+          "cycles": 10,
+          "count": 1827462,
+          "times": {
+            "cycle": 0.06492802845199107,
+            "elapsed": 6.316,
+            "period": 3.552907171366139e-8,
+            "timeStamp": 1523391384247
+          }
+        },
+        "EmitterWithMap.emit": {
+          "hz": 26885668.123799656,
+          "cycles": 8,
+          "count": 1868290,
+          "times": {
+            "cycle": 0.06949018307438518,
+            "elapsed": 6.383,
+            "period": 3.719453782570435e-8,
+            "timeStamp": 1523391371693
+          }
+        },
+        "EmitterWithArray.emit": {
+          "hz": 6752406.670744133,
+          "cycles": 7,
+          "count": 430083,
+          "times": {
+            "cycle": 0.0636932905512641,
+            "elapsed": 6.174,
+            "period": 1.480953456687758e-7,
+            "timeStamp": 1523391359370
+          }
+        },
+        "EmitterWithObject.emit": {
+          "hz": 5737929.791897867,
+          "cycles": 7,
+          "count": 334962,
+          "times": {
+            "cycle": 0.05837680350724693,
+            "elapsed": 6.157,
+            "period": 1.7427888389502967e-7,
+            "timeStamp": 1523391378083
+          }
+        }
+      },
+      "Emitter.off": {
+        "EmitterWithMap.off": {
+          "hz": 16222852.03866129,
+          "cycles": 7,
+          "count": 1157786,
+          "times": {
+            "cycle": 0.07136759906586318,
+            "elapsed": 6.407,
+            "period": 6.164144243052099e-8,
+            "timeStamp": 1523391402591
+          }
+        },
+        "EmitterWithSet.off": {
+          "hz": 15734353.232535318,
+          "cycles": 10,
+          "count": 1183666,
+          "times": {
+            "cycle": 0.07522813187849557,
+            "elapsed": 6.153,
+            "period": 6.35552021250045e-8,
+            "timeStamp": 1523391414877
+          }
+        },
+        "EmitterWithBabelArray.off": {
+          "hz": 6213297.524532398,
+          "cycles": 6,
+          "count": 452080,
+          "times": {
+            "cycle": 0.07276007598461538,
+            "elapsed": 6.074,
+            "period": 1.60945133570641e-7,
+            "timeStamp": 1523391396510
+          }
+        },
+        "EmitterWithArray.off": {
+          "hz": 5770344.205885168,
+          "cycles": 5,
+          "count": 477196,
+          "times": {
+            "cycle": 0.08269801297352562,
+            "elapsed": 5.934,
+            "period": 1.732998872025868e-7,
+            "timeStamp": 1523391390569
+          }
+        },
+        "EmitterWithObject.off": {
+          "hz": 944557.591754846,
+          "cycles": 5,
+          "count": 68624,
+          "times": {
+            "cycle": 0.07265200195205347,
+            "elapsed": 5.865,
+            "period": 0.0000010586966943351229,
+            "timeStamp": 1523391409005
+          }
+        }
+      },
+      "suggest": {
+        "suggestWithRegExp": {
+          "hz": 857.1287183743244,
+          "cycles": 3,
+          "count": 59,
+          "times": {
+            "cycle": 0.06883446877372458,
+            "elapsed": 5.987,
+            "period": 0.0011666859114190607,
+            "timeStamp": 1523391444715
+          }
+        },
+        "suggestWithIncludes": {
+          "hz": 415.917676133457,
+          "cycles": 3,
+          "count": 29,
+          "times": {
+            "cycle": 0.06972533668103749,
+            "elapsed": 5.949,
+            "period": 0.002404321954518534,
+            "timeStamp": 1523391432668
+          }
+        },
+        "suggestWithIndexOf": {
+          "hz": 411.4006361672789,
+          "cycles": 6,
+          "count": 30,
+          "times": {
+            "cycle": 0.07292161791359446,
+            "elapsed": 6.085,
+            "period": 0.0024307205971198153,
+            "timeStamp": 1523391438624
+          }
+        },
+        "suggestWithSearch": {
+          "hz": 252.65469062827697,
+          "cycles": 3,
+          "count": 16,
+          "times": {
+            "cycle": 0.06332753989333333,
+            "elapsed": 5.974,
+            "period": 0.003957971243333333,
+            "timeStamp": 1523391450709
+          }
+        },
+        "suggestWithForOf": {
+          "hz": 145.62252476182493,
+          "cycles": 2,
+          "count": 10,
+          "times": {
+            "cycle": 0.06867069511640213,
+            "elapsed": 5.836,
+            "period": 0.006867069511640213,
+            "timeStamp": 1523391421037
+          }
+        },
+        "suggestWithForOf2": {
+          "hz": 129.96568296245798,
+          "cycles": 2,
+          "count": 10,
+          "times": {
+            "cycle": 0.07694338822417154,
+            "elapsed": 5.781,
+            "period": 0.007694338822417154,
+            "timeStamp": 1523391426880
+          }
+        }
+      }
+    }
+  },
+  {
     "tag": "2da7b1ad117e0da0dd310c0062c566f4e86c1077",
     "timestamp": "2018-04-10T20:01:01.496Z",
     "suites": {

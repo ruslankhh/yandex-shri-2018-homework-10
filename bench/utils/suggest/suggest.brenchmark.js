@@ -5,14 +5,9 @@ const suggestWithIncludes = require('./../../../dist/utils/suggest/suggestWithIn
 const suggestWithIndexOf = require('./../../../dist/utils/suggest/suggestWithIndexOf');
 const suggestWithRegExp = require('./../../../dist/utils/suggest/suggestWithRegExp');
 const suggestWithSearch = require('./../../../dist/utils/suggest/suggestWithSearch');
+const streetsArr = require('./../../../test/data/data');
 
 compare('suggest', function () {
-  const streetsArr = [
-    'проспект Сахарова',
-    'ул. Ломоносова',
-    'ул. Тверская'
-  ];
-
   benchmark('suggestWithForOf', function () {
     suggestWithForOf('тверская', streetsArr);
   });
