@@ -1,13 +1,13 @@
 const { describe, it } = require('mocha');
 const { expect } = require('chai');
 
-const suggestWithForOf = require('./../../../src/utils/suggest/suggestWithForOf');
+const suggestWithFor = require('./../../../src/utils/suggest/suggestWithFor');
 const streetsArr = require('./../../data/data');
 const expected = require('./../../data/expected');
 
-describe('suggestWithForOf', () => {
+describe('suggestWithFor', () => {
   it('возращает массив с найденными улицами', () => {
-    const result = suggestWithForOf('тверская', streetsArr);
+    const result = suggestWithFor('тверская', streetsArr);
 
     expect(result).to.deep.equal(expected);
   });

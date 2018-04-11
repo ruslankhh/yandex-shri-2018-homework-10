@@ -1,13 +1,30 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 function includes(needle, haystack) {
-  return haystack.indexOf(needle) !== -1;
+  var result = '';
+  var j = 0;
+
+  for (var i = 0; i < haystack.length; i++) {
+    if (haystack[i] === needle[j]) {
+      result += haystack[i];
+      j += 1;
+
+      if (result === needle) {
+        return true;
+      }
+    } else {
+      result = '';
+      j = 0;
+    }
+  }
+
+  return false;
 }
 
-function suggestWithIndexOf(input, collection) {
+function suggestWithForOf(input, collection) {
   var limit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 10;
 
   var result = [];
@@ -46,5 +63,5 @@ function suggestWithIndexOf(input, collection) {
   return result;
 }
 
-exports.default = suggestWithIndexOf;
-module.exports = exports["default"];
+exports.default = suggestWithForOf;
+module.exports = exports['default'];
