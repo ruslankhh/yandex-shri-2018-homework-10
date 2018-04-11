@@ -96,7 +96,7 @@ npm run bench
 - Написал тесты
 - Написал тесты becnhmark-инга
 
-### "Генератор событий"
+### Выполнение задания "Генератор событий"
 
 #### Функция Emitter.on
 
@@ -112,7 +112,7 @@ npm run bench
 
 #### Функция Emitter.emit
 
-| Функция | Реализация | Сложность | Becnhmark |
+| Функция | Реализация | Сложность | Becnhmark, ops/sec |
 | - | - | - | - |
 | `EmitterWithArray.emit` | `Array.prototype.forEach` | O(N) | 6,657,536 |
 | `EmitterWithBabelArray.emit` | `for...of` + `Array.prototype.values` | O(N) | 28,699,581 |
@@ -124,7 +124,7 @@ npm run bench
 
 #### Функция Emitter.off
 
-| Функция | Реализация | Сложность | Becnhmark |
+| Функция | Реализация | Сложность | Becnhmark, ops/sec |
 | - | - | - | - |
 | `EmitterWithArray.off` | `Array.prototype.filter` | O(N) | 6,876,560 |
 | `EmitterWithBabelArray.off` | `Array.prototype.filter` | O(N) | 6,306,493 |
@@ -134,28 +134,28 @@ npm run bench
 
 Быстрее: `EmitterWithSet.off`.
 
-#### Итог
+#### Итог задания "Генератор событий"
 
 - Добавиление и удаление обработчиков событий быстрее у реализаций `EmitterWithMap` и `EmitterWithSet`, так как они имеют меньшую сложность, но вот вызов обработчиков быстрее у `EmitterWithBabelArray` (видимо за счет другой работы с памятью или меньшей сложности функции `values`).
 - Так как скорость вызова обработчиков у `EmitterWithMap` и `EmitterWithSet` не существенно ниже, чем у `EmitterWithBabelArray`, я выбираю `EmitterWithSet`.
 
-### "Саджест"
+### Выполнение задания "Саджест"
 
 | Функция | Реализация | Сложность* | Becnhmark, ops/sec |
 | - | - | - | - |
-| `suggestWithFor` | `for` * `for` | O(N * (2M + K)) | 141.325 |
-| `suggestWithFor2` | `for` * `for` | O(N * (M + K)) | 126.493 |
-| `suggestWithIncludes` | `for` * `String.prototype.includes` | O(N * (2M + K) | 381.147 |
-| `suggestWithIndexOf` | `for` * `String.prototype.inexOf` | O(N * (2M + K) | 412.873 |
-| `suggestWithRegExp` | `for` * (`new RegExp()` + `RegExp.prototype.test` | O(N * M | 819.307 |
-| `suggestWithSearch` | `for` * `String.prototype.search` | O(N * (2M + K) | 225.228 |
+| `suggestWithFor` | `for` * `for` | O(N*(2M+K)) | 141.325 |
+| `suggestWithFor2` | `for` * `for` | O(N*(M+K)) | 126.493 |
+| `suggestWithIncludes` | `for` * `String.prototype.includes` | O(N*(2M+K)) | 381.147 |
+| `suggestWithIndexOf` | `for` * `String.prototype.inexOf` | O(N*(2M+K)) | 412.873 |
+| `suggestWithRegExp` | `for` * (`new RegExp()` + `RegExp.prototype.test`) | O(N*M) | 819.307 |
+| `suggestWithSearch` | `for` * `String.prototype.search` | O(N*(2M+K)) | 225.228 |
 
-\* — сложность, без учёта сложности используемых внутри нативных методов.
-N — количество элементов в массиве.
-M — количество символов в строке массива.
-K — количество символов в искомой строке.
+\* — сложность, без учёта сложности используемых внутри нативных методов.<br>
+N — количество элементов в массиве.<br>
+M — количество символов в строке массива.<br>
+K — количество символов в искомой строке.<br>
 
-#### Итог
+#### Итог задания "Саджест"
 
 - Функция `suggestWithFor2` хоть и имеет ниже сложность, чем у `suggestWithFor`, но на самом деле сложность у неё получается равнозначная ей, так как внутри цикла увеличилось количество операций.
-- Самой быстрой вышла функция `suggestWithRegExp` за счёт того, что с помошью `RegExp` можно осуществлять регистронезависимый поиск. Поэтому я выбираю её.
+- Самой быстрой вышла функция `suggestWithRegExp` за счёт того, что с помошью `RegExp` можно осуществлять регистронезависимый поиск. Поэтому я выбираю её.п
