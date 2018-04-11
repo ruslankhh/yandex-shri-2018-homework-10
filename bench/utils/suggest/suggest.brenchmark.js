@@ -1,6 +1,6 @@
 /* global compare, benchmark */
-const suggestWithForOf = require('./../../../dist/utils/suggest/suggestWithForOf');
-const suggestWithForOf2 = require('./../../../dist/utils/suggest/suggestWithForOf2');
+const suggestWithFor = require('./../../../dist/utils/suggest/suggestWithFor');
+const suggestWithFor2 = require('./../../../dist/utils/suggest/suggestWithFor2');
 const suggestWithIncludes = require('./../../../dist/utils/suggest/suggestWithIncludes');
 const suggestWithIndexOf = require('./../../../dist/utils/suggest/suggestWithIndexOf');
 const suggestWithRegExp = require('./../../../dist/utils/suggest/suggestWithRegExp');
@@ -8,12 +8,12 @@ const suggestWithSearch = require('./../../../dist/utils/suggest/suggestWithSear
 const streetsArr = require('./../../../test/data/data');
 
 compare('suggest', function () {
-  benchmark('suggestWithForOf', function () {
-    suggestWithForOf('тверская', streetsArr);
+  benchmark('suggestWithFor', function () {
+    suggestWithFor('тверская', streetsArr);
   });
 
-  benchmark('suggestWithForOf2', function () {
-    suggestWithForOf2('тверская', streetsArr);
+  benchmark('suggestWithFor2', function () {
+    suggestWithFor2('тверская', streetsArr);
   });
 
   benchmark('suggestWithIncludes', function () {
